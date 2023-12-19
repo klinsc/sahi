@@ -683,9 +683,6 @@ def predict(
     # export coco results
     if dataset_json_path:
         save_path = str(save_dir / "result.json")
-        # convert ["score"] from tensor to float
-        for coco_prediction in coco_json:
-            coco_prediction["score"] = float(coco_prediction["score"]) 
         save_json(coco_json, save_path)
 
     if not novisual or export_pickle or export_crop or dataset_json_path is not None:
